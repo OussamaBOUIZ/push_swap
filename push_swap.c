@@ -6,48 +6,74 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 07:28:50 by obouizga          #+#    #+#             */
-/*   Updated: 2022/02/17 12:18:30 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/02/25 15:54:10 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	form_stack(char	**nums, int ac)
+t_stack	*form_stack_a(char **nums, int ac)
 {
-	t_stack	a;
-	t_list	*node;
-	size_t	i;
+	t_stack	*node;
+	int		i;
 
 	node = ft_lstnew(ft_atoi(nums[1]));
-	a = &node;
-	i = 2;
-	while (i < ac)
-	{
-		ft_lstadd_back(a, ft_lstnew(ft_atoi(nums[i])));
-		i++;
-	}
-	return (a);
+	i = 1;
+	while (++i < ac)
+		ft_lstadd_back(&node, ft_lstnew(ft_atoi(nums[i])));
+	return (node);
 }
 
-void	print_list(t_list **head)
+t_stack	*form_stack_b(char **nums, int ac)
 {
-	t_list	*curr;
+	t_stack	*node;
+	int		i;
 
-	curr = *head;
+	node = ft_lstnew(ft_atoi(nums[1]) * 3);
+	i = 1;
+	while (++i < ac)
+		ft_lstadd_back(&node, ft_lstnew(ft_atoi(nums[i]) * 3));
+	return (node);
+}
+
+void	print_list(t_stack *head, char c)
+{
+	t_stack	*curr;
+
+	curr = head;
+	printf("---\n");
 	while (curr)
 	{
-		printf("%d\n", curr->content);
+		printf("[%d]\n", curr->content);
 		curr = curr->next;
 	}
-	printf("\n");
+	printf("---\n %c\n", c);
 }
 
 int	main(int ac, char **av)
 {
-	t_stack nums = form_stack(av, ac);
-	print_list(nums);
-	rev_rotate(nums);
-	// print_list(nums);
+	
+	if (ac < 2)
+		return (1);
+	if (check_range(av, ac))
+	{
+		ft_putstr("Error: Out of Range\n");
+		return (1);
+	}
+	if (check_duplicate(av, ac))
+	{
+		ft_putstr("Error: Duplicate\n");
+		return (1);
+	}
+	if (check_integer(av, ac))
+	{
+		ft_putstr("Error: NOT DIGIT");
+		return (1);
+	}
+	t_stack *a_stack = form_stack_a(av, ac);
+	t_stack	*b_stack = form_stack_b(av, ac);
+	print_list(a_stack, 'A');
+	print_list(b_stack, 'B');
+	
 	return (0);
 }
-
