@@ -6,7 +6,7 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 08:46:40 by obouizga          #+#    #+#             */
-/*   Updated: 2022/02/24 10:25:38 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/02/26 11:11:41 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	rra(t_stack **stack)
 	node = (*stack)->next;
 	(*stack)->next = 0;
 	data = node->content;
-	new = ft_lstnew(data);
+	new = ft_lstnew(data, 42);
 	ft_lstadd_front(&list, new);
 	(*stack) = list;
 	free(node);
@@ -44,7 +44,7 @@ static void	rrb(t_stack **stack)
 	node = (*stack)->next;
 	(*stack)->next = 0;
 	data = node->content;
-	new = ft_lstnew(data);
+	new = ft_lstnew(data, 42);
 	ft_lstadd_front(&list, new);
 	(*stack) = list;
 	free(node);

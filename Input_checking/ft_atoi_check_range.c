@@ -6,13 +6,13 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 18:13:58 by obouizga          #+#    #+#             */
-/*   Updated: 2022/02/25 15:34:36 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/02/25 16:14:29 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
-static int	ft_atoi(const char *str)
+static int	check(const char *str)
 {
 	int					i;
 	unsigned long long	num;
@@ -45,5 +45,6 @@ int	check_range(char **nums, int n)
 
 	i = 0;
 	while (++i < n)
-		ft_atoi(nums[i]);
+		check(nums[i]);
+	return (0);
 }
