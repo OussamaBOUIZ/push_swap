@@ -6,7 +6,7 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 09:31:40 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/01 16:09:54 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/03/02 11:54:32 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@
 
 typedef t_list	t_stack;
 
+t_stack	*form_stack_a(char **nums, int ac);
+int		*convert_to_array(t_stack **stack);
 int		ft_strcmp(char *s1, char *s2);
 int		check_duplicate(char **nums, int n);
 int		check_integer(char **nums, int n);
 int		check_range(char **nums, int n);
-int		check_sorted(char **nums, int n);
+int		check_sorted_av(char **nums, int n);
+int		check_sorted_int(t_stack **stack);
 void	ft_putstr(char *s);
 void	print_list(t_stack *head, char c);
 void	push_to_a(t_stack **stack_a, t_stack **stack_b);

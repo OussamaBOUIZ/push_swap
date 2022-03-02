@@ -6,7 +6,7 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 13:14:40 by obouizga          #+#    #+#             */
-/*   Updated: 2022/02/28 18:43:10 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/03/02 14:44:03 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	tri_sort(t_stack **a_stack)
 	int	last;
 	int first;
 
+	if (check_sorted_int(a_stack))
+		return ;
 	first = (*a_stack)->content;
 	mid = (*a_stack)->next->content;
 	last = (*a_stack)->next->next->content;

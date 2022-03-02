@@ -6,23 +6,12 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 07:28:50 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/01 16:23:06 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:37:25 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*form_stack_a(char **nums, int ac)
-{
-	t_stack	*node;
-	int		i;
-
-	node = ft_lstnew(ft_atoi(nums[1]), 0);
-	i = 1;
-	while (++i < ac)
-		ft_lstadd_back(&node, ft_lstnew(ft_atoi(nums[i]), i - 1));
-	return (node);
-}
 
 t_stack	*form_stack_b(char **nums, int ac)
 {
@@ -56,22 +45,14 @@ void	print_list(t_stack *head, char c)
 
 int	main(int ac, char **av)
 {
+	(void)ac;
 	t_stack *a_stack = form_stack_a(av, ac);
 	t_stack *b_stack = NULL;
-	
 	print_list(a_stack, 'A');
 	if (ft_lstsize(a_stack) == 3)
-	{
 		tri_sort(&a_stack);
-		print_list(a_stack, 'A');
-	}
-	t_stack *f_min_node = get_node(&a_stack, find_min_index(&a_stack));
-	get_node_on_top(&a_stack, f_min_node, 'a');
-	push_to_b(&b_stack, &a_stack);
-	f_min_node = get_node(&a_stack, find_min_index(&a_stack));
-	get_node_on_top(&a_stack, f_min_node, 'a');
-	push_to_b(&b_stack, &a_stack);
+	if (ft_lstsize(a_stack) == 5)
+		penta_sorting(&a_stack, &b_stack);
 	print_list(a_stack, 'A');
-	
 	return (0);
 }
