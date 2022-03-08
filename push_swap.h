@@ -6,7 +6,7 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 09:31:40 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/02 11:54:32 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/03/08 14:41:03 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,7 @@ void	g_rotate(t_stack **stack, char c);
 void	g_rev_rotate(t_stack **stack, char c);
 void	g_rotate(t_stack **stack, char c);
 void	re_index(t_stack **stack);
+void	bubble_sort(int *arr, int n);
+void	swap(int *a, int *b);
 
 #endif
