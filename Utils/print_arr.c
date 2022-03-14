@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_checking                                     :+:      :+:    :+:   */
+/*   print_arr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/28 16:50:01 by obouizga          #+#    #+#             */
-/*   Updated: 2022/02/28 18:28:31 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/14 12:47:23 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/14 12:48:50 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "../push_swap.h"
+#include "../push_swap.h"
 
-// int	input_checking()
-// if (ac < 2)
-// 		return (1);
-// 	if (check_range(av, ac))
-// 	{
-// 		ft_putstr("Error: Out of Range\n");
-// 		return (1);
-// 	}
-// 	if (check_duplicate(av, ac))
-// 	{
-// 		ft_putstr("Error: Duplicate\n");
-// 		return (1);
-// 	}
-// 	if (check_integer(av, ac))
-// 	{
-// 		ft_putstr("Error: NOT DIGIT");
-// 		return (1);
-// 	}
+void	print_arr(int *arr, int n)
+{
+	int i;
+
+	i = -1;
+	while (++i < n)
+		printf("[%i]\n", arr[i]);
+}
