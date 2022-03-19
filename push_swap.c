@@ -6,7 +6,7 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 07:28:50 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/14 21:04:50 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/03/19 15:38:42 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,31 @@ void	print_list(t_stack *head, char c)
 	t_stack	*curr;
 
 	curr = head;
-	printf("---\n");
+	printf("---\n %c\n", c);
 	while (curr)
 	{
 		printf("[%i]: | %d |\n",curr->index, curr->content);
 		curr = curr->next;
 	}
-	printf("---\n %c\n", c);
+
 }
 
 int	main(int ac, char **av)
 {
 	(void)ac;
+	//t_stack *head;
 	t_stack *a_stack = form_stack_a(av, ac);
+	t_stack *b_stack = NULL;
 	int *arr = convert_to_array(&a_stack);
 	int n = ft_lstsize(a_stack);
-
-	print_arr(arr, n);
 	bubble_sort(arr, n);
-	print_arr(arr, n);
-	push_chunks(arr, n);
+	// print_list(a_stack, 'A');
+	push_chunks(arr, n, &a_stack, &b_stack);
+	pick_up(&a_stack, &b_stack);
+	tri_sort(&b_stack, 'b');
+	// rotate_b(&b_stack);
+	// rotate_b(&b_stack);
+	print_list(a_stack, 'A');
+	print_list(b_stack, 'B');
 	return (0);
 }

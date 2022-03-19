@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_node_on_top.c                                  :+:      :+:    :+:   */
+/*   g_swap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 10:37:39 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/19 12:16:06 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/19 15:32:21 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/19 15:33:01 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	get_node_on_top(t_stack **stack, t_stack *node, char c)
-{
-	int	index;
-	int	size;
-	int	i;
 
-	index = get_index(*stack, node->content);
-	size = ft_lstsize(*stack);
-	if (index < 0)
-		return ;
-	if (index < (size / 2))
-	{
-		i = 0;
-		while (++i <= index)
-			g_rotate(stack, c);
-	}
+void	g_swap(t_stack **stack, char c)
+{
+	if (c == 'a')
+		swap_a(stack);
+	else if (c == 'b')
+		swap_b(stack);
 	else
-	{
-		i = 0;
-		while (++i <= size - index)
-			g_rev_rotate(stack, c);
-	}
+		return ;
 }

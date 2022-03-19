@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_node_on_top.c                                  :+:      :+:    :+:   */
+/*   pick_up.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 10:37:39 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/19 12:16:06 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/19 15:12:57 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/19 15:24:17 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	get_node_on_top(t_stack **stack, t_stack *node, char c)
+void	pick_up(t_stack **a_stack, t_stack **b_stack)
 {
-	int	index;
-	int	size;
-	int	i;
+	t_stack	*max;
+	int		size;
 
-	index = get_index(*stack, node->content);
-	size = ft_lstsize(*stack);
-	if (index < 0)
-		return ;
-	if (index < (size / 2))
+	size = ft_lstsize(*b_stack);
+	while (size > 3)
 	{
-		i = 0;
-		while (++i <= index)
-			g_rotate(stack, c);
-	}
-	else
-	{
-		i = 0;
-		while (++i <= size - index)
-			g_rev_rotate(stack, c);
+		re_index(b_stack);
+		max = get_node(b_stack, find_max_index(b_stack));
+		get_node_on_top(b_stack, max, 'b');
+		push_to_a(a_stack, b_stack);
+		size--;
 	}
 }

@@ -6,22 +6,25 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 10:41:11 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/01 10:43:49 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/03/19 12:21:29 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	get_index(t_stack **stack, t_stack *node)
+int	get_index(t_stack *stack, int nbr)
 {
-	t_stack *curr;
-	
-	curr = *stack;
+	t_stack	*curr;
+	int 	i;
+
+	curr = stack;
+	i = 0;
 	while (curr)
 	{
-		if (curr->content == node->content)
-			return (curr->index);
+		if (curr->content == nbr)
+			return (i);
 		curr = curr->next;
+		i++;
 	}
 	return (-1);
 }

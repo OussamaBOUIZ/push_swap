@@ -6,7 +6,7 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 14:33:15 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/08 15:27:29 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/03/17 15:05:45 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,4 @@ void	bubble_sort(int *arr, int n)
 		}
 		i++;
 	}
-	printf("sorted\n");
 }
