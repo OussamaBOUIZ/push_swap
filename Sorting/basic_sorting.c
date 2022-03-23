@@ -1,36 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_duplicate.c                                  :+:      :+:    :+:   */
+/*   basic_sorting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 11:28:49 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/23 16:30:57 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/22 22:52:43 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/23 12:19:49 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	check_duplicate(char **nums, int n)
+void	basic_sorting(t_stack **a_stack, t_stack **b_stack, int n)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	while (i < n - 1)
-	{
-		j = i + 1;
-		while (j < n)
-		{
-			if (!ft_strcmp(nums[i], nums[j]))
-			{
-				printf("duplicate 👋\n");
-				return (1);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
+	push_mins(a_stack, b_stack);
+	re_index(a_stack);
+	tri_sort(a_stack, 'a');
+	get_back_to_a(a_stack, b_stack, n - 3);
 }

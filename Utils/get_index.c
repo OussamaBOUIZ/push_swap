@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_duplicate.c                                  :+:      :+:    :+:   */
+/*   get_index.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 11:28:49 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/23 16:30:57 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/01 10:41:11 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/23 16:27:11 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	check_duplicate(char **nums, int n)
+int	get_index(t_stack *stack, int nbr)
 {
-	int	i;
-	int	j;
+	t_stack	*curr;
+	int		i;
 
-	i = 1;
-	while (i < n - 1)
+	curr = stack;
+	i = 0;
+	while (curr)
 	{
-		j = i + 1;
-		while (j < n)
-		{
-			if (!ft_strcmp(nums[i], nums[j]))
-			{
-				printf("duplicate 👋\n");
-				return (1);
-			}
-			j++;
-		}
+		if (curr->content == nbr)
+			return (i);
+		curr = curr->next;
 		i++;
 	}
-	return (0);
+	return (-1);
 }

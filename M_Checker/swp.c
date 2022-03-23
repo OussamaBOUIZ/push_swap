@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_index.c                                        :+:      :+:    :+:   */
+/*   swp.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 10:41:11 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/19 12:21:29 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/22 11:23:34 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/22 11:26:33 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	get_index(t_stack *stack, int nbr)
+void	s(t_stack **stack)
 {
-	t_stack	*curr;
-	int 	i;
+	int		tmp;
 
-	curr = stack;
-	i = 0;
-	while (curr)
-	{
-		if (curr->content == nbr)
-			return (i);
-		curr = curr->next;
-		i++;
+	if (ft_lstsize(*stack) > 1)
+	{	
+		tmp = (*stack)->content;
+		(*stack)->content = (*stack)->next->content;
+		(*stack)->next->content = tmp;
 	}
-	return (-1);
+}
+
+void	ss(t_stack **a, t_stack **b)
+{
+	s(a);
+	s(b);
 }

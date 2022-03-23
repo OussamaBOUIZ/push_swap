@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_duplicate.c                                  :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 11:28:49 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/23 16:30:57 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/22 11:21:12 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/22 14:49:16 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	check_duplicate(char **nums, int n)
+void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-	int	i;
-	int	j;
+	t_list	*tmp;
 
-	i = 1;
-	while (i < n - 1)
-	{
-		j = i + 1;
-		while (j < n)
-		{
-			if (!ft_strcmp(nums[i], nums[j]))
-			{
-				printf("duplicate 👋\n");
-				return (1);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
+	tmp = *stack_b;
+	*stack_b = (*stack_b)->next;
+	tmp->next = NULL;
+	ft_lstadd_front(stack_a, tmp);
+	ft_putstr("pa\n");
+}
+
+void	pb(t_stack **stack_b, t_stack **stack_a)
+{
+	t_list	*tmp;
+
+	tmp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	tmp->next = NULL;
+	ft_lstadd_front(stack_b, tmp);
+	ft_putstr("pb\n");
 }

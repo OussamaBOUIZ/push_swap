@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_duplicate.c                                  :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 11:28:49 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/23 16:30:57 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/20 21:22:47 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/23 14:40:58 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	check_duplicate(char **nums, int n)
+int	check_input(int n, char **nums)
 {
-	int	i;
-	int	j;
-
-	i = 1;
-	while (i < n - 1)
-	{
-		j = i + 1;
-		while (j < n)
-		{
-			if (!ft_strcmp(nums[i], nums[j]))
-			{
-				printf("duplicate 👋\n");
-				return (1);
-			}
-			j++;
-		}
-		i++;
-	}
+	if (n == 1)
+		return (1);
+	if (check_integer(nums, n) || check_range(nums, n) || \
+	check_duplicate(nums, n))
+		display_error();
+	else if (check_sorted_av(nums, n))
+		exit (0);
 	return (0);
 }

@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_duplicate.c                                  :+:      :+:    :+:   */
+/*   check_sorted_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 11:28:49 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/23 16:30:57 by obouizga         ###   ########.fr       */
+/*   Created: 2022/02/26 11:19:10 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/23 16:28:45 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	check_duplicate(char **nums, int n)
+int	check_sorted_int(t_stack **stack)
 {
+	int	*arr;
 	int	i;
-	int	j;
+	int	size;
 
-	i = 1;
-	while (i < n - 1)
-	{
-		j = i + 1;
-		while (j < n)
-		{
-			if (!ft_strcmp(nums[i], nums[j]))
-			{
-				printf("duplicate 👋\n");
-				return (1);
-			}
-			j++;
-		}
+	size = ft_lstsize(*stack);
+	arr = convert_to_array(stack);
+	i = 0;
+	while (i < size - 1 && arr[i] < arr[i + 1])
 		i++;
-	}
+	if (i == size - 1)
+		return (1);
 	return (0);
 }

@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_node_on_top.c                                  :+:      :+:    :+:   */
+/*   quad_sorting.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/01 10:37:39 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/19 12:16:06 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/21 11:27:08 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/21 11:28:12 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	get_node_on_top(t_stack **stack, t_stack *node, char c)
+void	quad_sorting(t_stack **a_stack, t_stack **b_stack)
 {
-	int	index;
-	int	size;
-	int	i;
+	t_stack	*f_min_node;
 
-	index = get_index(*stack, node->content);
-	size = ft_lstsize(*stack);
-	if (index < 0)
-		return ;
-	if (index < (size / 2))
-	{
-		i = 0;
-		while (++i <= index)
-			g_rotate(stack, c);
-	}
-	else
-	{
-		i = 0;
-		while (++i <= size - index)
-			g_rev_rotate(stack, c);
-	}
+	f_min_node = get_node(a_stack, find_min_index(a_stack));
+	get_node_on_top(a_stack, f_min_node, 'a');
+	push_to_b(b_stack, a_stack);
+	re_index(a_stack);
+	tri_sort(a_stack, 'a');
+	push_to_a(a_stack, b_stack);
 }

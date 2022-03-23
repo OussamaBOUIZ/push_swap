@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_duplicate.c                                  :+:      :+:    :+:   */
+/*   push_mins.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 11:28:49 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/23 16:30:57 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/23 12:15:14 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/23 12:16:45 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	check_duplicate(char **nums, int n)
+void	push_mins(t_stack **a_stack, t_stack **b_stack)
 {
-	int	i;
-	int	j;
+	t_stack	*curr;
+	t_stack	*min;
+	int		size;
 
-	i = 1;
-	while (i < n - 1)
+	size = ft_lstsize(*a_stack);
+	curr = *a_stack;
+	while (size > 3)
 	{
-		j = i + 1;
-		while (j < n)
-		{
-			if (!ft_strcmp(nums[i], nums[j]))
-			{
-				printf("duplicate 👋\n");
-				return (1);
-			}
-			j++;
-		}
-		i++;
+		re_index(a_stack);
+		min = get_node(a_stack, find_min_index(a_stack));
+		get_node_on_top(a_stack, min, 'a');
+		push_to_b(b_stack, a_stack);
+		size--;
 	}
-	return (0);
 }

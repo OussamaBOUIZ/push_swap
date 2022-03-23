@@ -1,26 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_a.c                                           :+:      :+:    :+:   */
+/*   rev.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 08:06:32 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/22 11:24:03 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/22 11:32:30 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/22 11:34:14 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap_a(t_stack **stack)
+void	rra(t_stack **stack)
 {
-	int		tmp;
+	t_stack	*tmp;
 
 	if (ft_lstsize(*stack) > 1)
-	{	
-		tmp = (*stack)->content;
-		(*stack)->content = (*stack)->next->content;
-		(*stack)->next->content = tmp;
+	{
+		tmp = *stack;
+		while (tmp->next->next)
+			tmp = tmp->next;
+		tmp->next->next = *stack;
+		*stack = tmp->next;
+		tmp->next = NULL;
 	}
-	ft_putstr("sa\n");
 }
+
+void	rrb(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (ft_lstsize(*stack) > 1)
+	{
+		tmp = *stack;
+		while (tmp->next->next)
+			tmp = tmp->next;
+		tmp->next->next = *stack;
+		*stack = tmp->next;
+		tmp->next = NULL;
+	}
+}
+
+void	rrr(t_stack **a, t_stack **b)
+{
+	rra(a);
+	rrb(b);
+}
+

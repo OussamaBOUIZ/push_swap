@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_duplicate.c                                  :+:      :+:    :+:   */
+/*   get_node_on_top.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 11:28:49 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/23 16:30:57 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/01 10:37:39 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/23 16:27:40 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	check_duplicate(char **nums, int n)
+void	get_node_on_top(t_stack **stack, t_stack *node, char c)
 {
+	int	index;
+	int	size;
 	int	i;
-	int	j;
 
-	i = 1;
-	while (i < n - 1)
+	index = get_index(*stack, node->content);
+	size = ft_lstsize(*stack);
+	if (index < 0)
+		return ;
+	if (index < (size / 2))
 	{
-		j = i + 1;
-		while (j < n)
-		{
-			if (!ft_strcmp(nums[i], nums[j]))
-			{
-				printf("duplicate 👋\n");
-				return (1);
-			}
-			j++;
-		}
-		i++;
+		i = 0;
+		while (++i <= index)
+			g_rotate(stack, c);
 	}
-	return (0);
+	else
+	{
+		i = 0;
+		while (++i <= size - index)
+			g_rev_rotate(stack, c);
+	}
 }

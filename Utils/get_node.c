@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_duplicate.c                                  :+:      :+:    :+:   */
+/*   get_node.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 11:28:49 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/23 16:30:57 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/01 10:04:20 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/23 16:27:23 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	check_duplicate(char **nums, int n)
+t_stack	*get_node(t_stack **stack, int index)
 {
-	int	i;
-	int	j;
+	t_stack	*curr;
 
-	i = 1;
-	while (i < n - 1)
+	curr = *stack;
+	if (index <= ft_lstsize(*stack))
 	{
-		j = i + 1;
-		while (j < n)
+		while (curr)
 		{
-			if (!ft_strcmp(nums[i], nums[j]))
-			{
-				printf("duplicate 👋\n");
-				return (1);
-			}
-			j++;
+			if (curr->index == index)
+				return (curr);
+			curr = curr->next;
 		}
-		i++;
 	}
-	return (0);
+	return (NULL);
 }

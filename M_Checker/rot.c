@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_both.c                                      :+:      :+:    :+:   */
+/*   rot.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 08:21:13 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/22 14:50:34 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/22 11:27:16 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/22 11:30:50 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	rot_a(t_stack **stack)
+void	ra(t_list **stack_a)
+{
+	t_list	*tmp;
+
+	if (ft_lstsize(*stack_a) > 1)
+	{
+		tmp = *stack_a;
+		(*stack_a) = (*stack_a)->next;
+		tmp->next = NULL;
+		ft_lstadd_back(stack_a, tmp);
+	}
+}
+
+void	rb(t_stack **stack)
 {
 	int		tmp;
 	t_list	*curr;
@@ -34,31 +47,8 @@ static void	rot_a(t_stack **stack)
 	}
 }
 
-static void	rot_b(t_stack **stack)
+void	rr(t_stack **a, t_stack **b)
 {
-	int		tmp;
-	t_list	*curr;
-
-	if (ft_lstsize(*stack) > 1)
-	{
-		tmp = (*stack)->content;
-		curr = *stack;
-		while (curr)
-		{
-			if (!(curr->next))
-			{
-				curr->content = tmp;
-				break ;
-			}
-			curr->content = curr->next->content;
-			curr = curr->next;
-		}
-	}
-}
-
-void	rotate_both(t_stack **stack_a, t_stack **stack_b)
-{
-	rot_a(stack_a);
-	rot_b(stack_b);
-	ft_putstr("rr\n");
+	ra(a);
+	rb(b);
 }

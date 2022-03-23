@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_max_index.c                                   :+:      :+:    :+:   */
+/*   get_back_to_a.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/19 14:56:49 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/19 15:12:52 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/23 10:56:06 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/23 10:57:16 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	find_max_index(t_stack **stack)
+void	get_back_to_a(t_stack **a_stack, t_stack **b_stack, int n)
 {
-	t_stack	*curr;
-	int		max[2];
-
-	curr = *stack;
-	max[0] = curr->index;
-	max[1] = curr->content;
-	while (curr->next)
-	{
-		if (max[1] < curr->next->content)
-		{
-			max[1] = curr->next->content;
-			max[0] = curr->next->index;
-		}
-		curr = curr->next;
-	}
-	return (max[0]);
+	while (n--)
+		push_to_a(a_stack, b_stack);
 }

@@ -1,3 +1,12 @@
 .vscode
 a.out.dSYM
 DS_Store
+a.out
+push_swap_run_args.log
+pyviz.py
+push_swap
+push_swap_visualizer/
+push_swap.dSYM/Contents
+push_swap_tester/
+checker_Mac
+

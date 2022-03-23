@@ -6,7 +6,7 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 12:05:01 by obouizga          #+#    #+#             */
-/*   Updated: 2022/02/24 15:19:48 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:31:36 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,12 @@ int	check_integer(char **nums, int n)
 
 	i = 0;
 	while (++i < n)
+	{
 		if (not_integer(nums[i]))
+		{
+			printf("Non Integer 👋\n");
 			return (1);
+		}
+	}
 	return (0);
 }

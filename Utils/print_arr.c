@@ -6,7 +6,7 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 12:47:23 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/14 12:48:50 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/03/23 16:28:02 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	print_arr(int *arr, int n)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < n)
-		printf("[%i]\n", arr[i]);
+		printf("[%i]-> %i\n", i, arr[i]);
 }

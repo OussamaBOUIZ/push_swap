@@ -6,13 +6,13 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 08:46:40 by obouizga          #+#    #+#             */
-/*   Updated: 2022/02/26 11:11:41 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:49:50 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	rra(t_stack **stack)
+static void	rev_a(t_stack **stack)
 {
 	t_list	*new;
 	t_list	*list;
@@ -31,7 +31,7 @@ static void	rra(t_stack **stack)
 	free(node);
 }
 
-static void	rrb(t_stack **stack)
+static void	rev_b(t_stack **stack)
 {
 	t_list	*new;
 	t_list	*list;
@@ -52,7 +52,7 @@ static void	rrb(t_stack **stack)
 
 void	reverse_rotate_both(t_stack **stack_a, t_stack **stack_b)
 {
-	rra(stack_a);
-	rrb(stack_b);
+	rev_a(stack_a);
+	rev_b(stack_b);
 	ft_putstr("rrr\n");
 }
