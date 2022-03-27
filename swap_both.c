@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   swap_both.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 07:28:50 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/27 14:31:19 by obouizga         ###   ########.fr       */
+/*   Created: 2022/02/21 08:15:40 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/26 22:30:51 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	swap_both(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*a_stack;
-	t_stack	*b_stack;
+	int		tmp_a;
+	int		tmp_b;
 
-	if (check_input(ac, av))
-		return (1);
-	a_stack = form_stack_a(av, ac);
-	b_stack = NULL;
-	main_sorting(&a_stack, &b_stack);
-	free_stack(&a_stack);
-	return (0);
+	if (ft_lstsize(*stack_a) > 1)
+	{	
+		tmp_a = (*stack_a)->content;
+		(*stack_a)->content = (*stack_a)->next->content;
+		(*stack_a)->next->content = tmp_a;
+	}
+	if (ft_lstsize(*stack_b) > 1)
+	{	
+		tmp_b = (*stack_b)->content;
+		(*stack_b)->content = (*stack_b)->next->content;
+		(*stack_b)->next->content = tmp_b;
+	}
+	ft_putstr("ss\n");
 }

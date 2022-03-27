@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 07:28:50 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/27 14:31:19 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/26 22:47:18 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/27 14:05:28 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
-	t_stack	*a_stack;
-	t_stack	*b_stack;
+	t_stack	*current;
 
-	if (check_input(ac, av))
-		return (1);
-	a_stack = form_stack_a(av, ac);
-	b_stack = NULL;
-	main_sorting(&a_stack, &b_stack);
-	free_stack(&a_stack);
-	return (0);
+	if (new)
+	{
+		if (*lst)
+		{
+			current = *lst;
+			while (current->next)
+				current = current->next;
+			current->next = new;
+		}
+		else
+			*lst = new;
+	}
 }

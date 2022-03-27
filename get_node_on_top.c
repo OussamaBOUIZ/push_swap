@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   get_node_on_top.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 07:28:50 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/27 14:31:19 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/01 10:37:39 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/26 22:30:51 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	get_node_on_top(t_stack **stack, t_stack *node, char c)
 {
-	t_stack	*a_stack;
-	t_stack	*b_stack;
+	int	index;
+	int	size;
+	int	i;
 
-	if (check_input(ac, av))
-		return (1);
-	a_stack = form_stack_a(av, ac);
-	b_stack = NULL;
-	main_sorting(&a_stack, &b_stack);
-	free_stack(&a_stack);
-	return (0);
+	index = get_index(*stack, node->content);
+	size = ft_lstsize(*stack);
+	if (index < 0)
+		return ;
+	if (index < (size / 2))
+	{
+		i = 0;
+		while (++i <= index)
+			g_rotate(stack, c);
+	}
+	else
+	{
+		i = 0;
+		while (++i <= size - index)
+			g_rev_rotate(stack, c);
+	}
 }

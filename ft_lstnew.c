@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 07:28:50 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/27 14:31:19 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/26 22:52:52 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/27 14:06:01 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+t_stack	*ft_lstnew(int content, int index)
 {
-	t_stack	*a_stack;
-	t_stack	*b_stack;
+	t_stack	*new_list;
 
-	if (check_input(ac, av))
-		return (1);
-	a_stack = form_stack_a(av, ac);
-	b_stack = NULL;
-	main_sorting(&a_stack, &b_stack);
-	free_stack(&a_stack);
-	return (0);
+	new_list = malloc(sizeof(t_stack));
+	if (!new_list)
+		return (NULL);
+	new_list->content = content;
+	new_list->index = index;
+	new_list->next = NULL;
+	return (new_list);
 }

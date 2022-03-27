@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   format_stack_a.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 07:28:50 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/27 14:31:19 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/02 11:46:56 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/26 22:30:51 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+t_stack	*form_stack_a(char **nums, int ac)
 {
-	t_stack	*a_stack;
-	t_stack	*b_stack;
+	t_stack	*node;
+	int		i;
 
-	if (check_input(ac, av))
-		return (1);
-	a_stack = form_stack_a(av, ac);
-	b_stack = NULL;
-	main_sorting(&a_stack, &b_stack);
-	free_stack(&a_stack);
-	return (0);
+	node = ft_lstnew(ft_atoi(nums[1]), 0);
+	i = 1;
+	while (++i < ac)
+		ft_lstadd_back(&node, ft_lstnew(ft_atoi(nums[i]), i - 1));
+	return (node);
 }

@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   find_max_index.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 07:28:50 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/27 14:31:19 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/19 14:56:49 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/26 22:30:51 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	find_max_index(t_stack **stack)
 {
-	t_stack	*a_stack;
-	t_stack	*b_stack;
+	t_stack	*curr;
+	int		max[2];
 
-	if (check_input(ac, av))
-		return (1);
-	a_stack = form_stack_a(av, ac);
-	b_stack = NULL;
-	main_sorting(&a_stack, &b_stack);
-	free_stack(&a_stack);
-	return (0);
+	curr = *stack;
+	max[0] = curr->index;
+	max[1] = curr->content;
+	while (curr->next)
+	{
+		if (max[1] < curr->next->content)
+		{
+			max[1] = curr->next->content;
+			max[0] = curr->next->index;
+		}
+		curr = curr->next;
+	}
+	return (max[0]);
 }

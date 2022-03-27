@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check_non_integer.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 07:28:50 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/27 14:31:19 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/27 09:34:00 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/27 09:34:41 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	not_integer(char *s)
 {
-	t_stack	*a_stack;
-	t_stack	*b_stack;
+	int	i;
 
-	if (check_input(ac, av))
+	i = 0;
+	if (s[i] != '-' && !ft_isdigit(s[i]))
 		return (1);
-	a_stack = form_stack_a(av, ac);
-	b_stack = NULL;
-	main_sorting(&a_stack, &b_stack);
-	free_stack(&a_stack);
+	while (s[++i])
+		if (!ft_isdigit(s[i]))
+			return (1);
 	return (0);
 }

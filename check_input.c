@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 07:28:50 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/27 14:31:19 by obouizga         ###   ########.fr       */
+/*   Created: 2022/03/20 21:22:47 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/27 14:08:08 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	check_input(int n, char **nums)
 {
-	t_stack	*a_stack;
-	t_stack	*b_stack;
-
-	if (check_input(ac, av))
-		return (1);
-	a_stack = form_stack_a(av, ac);
-	b_stack = NULL;
-	main_sorting(&a_stack, &b_stack);
-	free_stack(&a_stack);
+	if (n == 1)
+		exit(0);
+	if (check_integer(nums, n) || check_range(nums, n) || \
+	check_duplicate(nums, n))
+	{
+		printf("we love you\n");
+		display_error();
+	}
+	else if (check_sorted_av(nums, n))
+		exit (0);
 	return (0);
 }

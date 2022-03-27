@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_to_a.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/07 07:28:50 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/27 14:31:19 by obouizga         ###   ########.fr       */
+/*   Created: 2022/02/19 20:33:49 by obouizga          #+#    #+#             */
+/*   Updated: 2022/03/27 11:09:58 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+void	push_to_a(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*a_stack;
-	t_stack	*b_stack;
+	t_stack	*tmp;
 
-	if (check_input(ac, av))
-		return (1);
-	a_stack = form_stack_a(av, ac);
-	b_stack = NULL;
-	main_sorting(&a_stack, &b_stack);
-	free_stack(&a_stack);
-	return (0);
+	if (ft_lstsize(*stack_b) > 0)
+	{
+		tmp = *stack_b;
+		*stack_b = (*stack_b)->next;
+		tmp->next = NULL;
+		ft_lstadd_front(stack_a, tmp);
+		ft_putstr("pa\n");
+	}
 }
