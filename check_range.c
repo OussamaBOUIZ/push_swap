@@ -6,7 +6,7 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 18:13:58 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/26 22:30:51 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/03/28 14:47:24 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ static int	check(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{	
 		num = num * 10 + str[i] - '0';
-		if (num >= 2147483648)
+		if ((num >= 2147483648 && sign == 1) || \
+		(num > 2147483648 && sign == -1))
 			display_error();
 		i++;
 	}

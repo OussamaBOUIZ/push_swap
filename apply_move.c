@@ -6,7 +6,7 @@
 /*   By: obouizga <obouizga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 21:37:40 by obouizga          #+#    #+#             */
-/*   Updated: 2022/03/27 14:01:33 by obouizga         ###   ########.fr       */
+/*   Updated: 2022/03/28 14:23:15 by obouizga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	apply_move(t_stack **a, t_stack **b, char *m)
 	else if (!ft_strcmp(m, "rra\n"))
 		rra(a);
 	else if (!ft_strcmp(m, "rrb\n"))
-		rb(b);
+		rrb(b);
 	else if (!ft_strcmp(m, "rrr\n"))
 		rrr(a, b);
 	else
